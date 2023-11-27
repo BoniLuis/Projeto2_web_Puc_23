@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - PetShop</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Estilização do topo da página */
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 70px;
+            background-color: #7140FD;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        /* Estilização da barra de navegação */
+        .navbar {
+            background-color: #7140FD;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .navbar ul li a:hover {
+            color: #4E1DDA  ; 
+        }
+        /* Estilização do logo e botão de sair */
+        .logoff {
+            padding: 8px 20px;
+            background-color: #4E1DDA;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .logoff:hover {
+            background-color: #270685;
+        }
+        /* Estilização do contêiner principal */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+            margin-bottom: 20px;
+        }
+        /* Estilização da seção de agenda */
+        .agenda,
+        .compras {
+            width: 48%;
+            box-sizing: border-box;
+        }
+        .agenda {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .agenda h2 {
+            margin-bottom: 15px;
+            background: #B297FF;
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .agenda div {
+            margin-bottom: 10px;
+        }
+        /* Estilização da seção de compras */
+        .categorias {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .categorias button {
+            margin: 0 10px;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #7140FD;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .categorias button:hover {
+            background-color: #4E1DDA;
+        }
+        .produto {
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .produto img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+        .produto-info {
+            flex: 1;
+        }
+        .produto-info h3 {
+            margin-top: 0;
+        }
+        .produto button {
+            padding: 10px 20px;
+            background-color: #4E1DDA;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        .produto button:hover {
+            background-color: #270685;
+        }
+        /* Estilização para a seção de agenda */
+        .service {
+            font-weight: bold;
+            background: #7140FD;
+            color: #fff;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+        }
+        .date{
+            margin-top: 0;
+            background: #B297FF;
+            color: #fff;
+            border-radius: 0 0 5px 5px;
+            margin-bottom: 35px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Estilização para informações específicas */
+        .description {
+            color: #777;
+            width: 50%;
+            margin: 0 auto;
+        }
+        .price {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Estrutura do topo da página -->
+    <div class="top">
+        <div class="logo">
+            <img src="/logo.png" alt="Petly">
+        </div>
+        <button class="logoff">Sair</button>
+    </div>
+    <!-- Barra de navegação -->
+    <div class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Agenda</a></li>
+            <li><a href="#">Clientes</a></li>
+            <li><a href="#">Histórico</a></li>
+            <li><a href="#">Shop</a></li>
+        </ul>
+    </div>
+    <!-- Contêiner principal que organiza as seções de agenda e compras -->
+    <div class="container">
+        <!-- Seção de agenda -->
+        <div class="agenda">
+            <div>
+                <h2>Próximas Atividades</h2>
+                <div>
+                    <p class="service">Serviço: Banho</p>
+                    <p class="date">Data: 01/12/2023</p>
+                </div>
+                <div>
+                    <p class="service">Serviço: Consulta veterinária</p>
+                    <p class="date">Data: 03/12/2023</p>
+                </div>
+            </div>
+        </div>
+        <!-- Seção de compras -->
+        <div class="compras">
+            <div class="categorias">
+                <button>Todos</button>
+                <button>Rações</button>
+                <button>Brinquedos</button>
+                <button>Camas</button>
+            </div>
+            <div class="produto">
+                <img src="/product.png" alt="Produto">
+                <div class="produto-info">
+                    <h3>Ração Premium para Gatos</h3>
+                    <p class="description">Ração premium para gatos de todas as idades, feita com ingredientes naturais e sem corantes artificiais.</p>
+                    <p class="price">Preço: R$ 39,90</p>
+                    <button>Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Script JavaScript -->
+    <script>
+        // Função para redirecionar ao clicar em "Clientes"
+        function redirectToClientes() {
+            window.location.href = 'index.html'; // Redireciona para a página index.html
+        }
+
+        // Seleciona todos os elementos <a> do navbar e adiciona evento de clique
+        const navLinks = document.querySelectorAll('.navbar ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Previne o comportamento padrão do link
+                const linkText = this.innerText.toLowerCase(); // Obtém o texto do link em letras minúsculas
+                if (linkText === 'clientes') {
+                    redirectToClientes(); // Redireciona para a página Clientes
+                }
+                else if(linkText === 'home'){
+                    
+                } else {
+                    alert('Página em manutenção'); // Mostra oo aviso para outras opções
+                }
+            });
+        });
+
+        // Adicionando a mensagem ao clicar em "Comprar"
+        const comprarButton = document.querySelector('.produto button');
+        comprarButton.addEventListener('click', function() {
+            alert('Parabéns pela compra!');
+        });
+
+        // Adicionando a mensagem ao clicar em "Sair"
+        const sairButton = document.querySelector('.logoff');
+        sairButton.addEventListener('click', function() {
+            alert('Obrigado, volte sempre!');
+        });
+    </script>
+</body>
+</html>
+

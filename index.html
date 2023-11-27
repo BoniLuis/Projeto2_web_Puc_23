@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cliente - PetShop</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+        }
+        .navbar {
+            background-color: #7140FD;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            box-sizing: border-box;
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin-right: 20px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .navbar ul li a:hover {
+            color: #4E1DDA; 
+        }
+        .titulo {
+            text-align: center;
+            margin: 80px 0 0 0;
+            background-color: #7140FD;
+            color: white;
+            border-radius: 8px 8px 0 0;
+            width: 540px;
+            position: relative;
+        }
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 70px;
+            background-color: #7140FD;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .logo img {
+            height: 50px;
+        }
+        .logoff {
+            padding: 8px 20px;
+            background-color: #4E1DDA;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .logoff:hover {
+            background-color: #270685;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        .radio-group label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        textarea,
+        select {
+            width: calc(100% - 22px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        .radio-group {
+            margin-bottom: 20px;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #7140FD;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        button[type="submit"]:hover {
+            background-color: #4E1DDA;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #e7f3ea;
+            width: 300px;
+            padding: 10px;
+            background-color: #4caf50;
+            border-radius: 6px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Estrutura do topo da página -->
+    <div class="top">
+        <div class="logo">
+            <img src="/logo.png" alt="Petly">
+        </div>
+        <button class="logoff">Sair</button>
+    </div>
+    <!-- Barra de navegação -->
+    <div class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Agenda</a></li>
+            <li><a href="#">Clientes</a></li>
+            <li><a href="#">Histórico</a></li>
+            <li><a href="#">Shop</a></li>
+        </ul>
+    </div>
+    <!-- Título da página de cadastro -->
+    <div class="titulo">
+        <h1>Cadastro de Cliente</h1>
+        <!-- Mensagem de sucesso ao cadastrar -->
+        <div class="success-message" id="successMessage">Cliente cadastrado com sucesso!</div>
+    </div>
+    <!-- Formulário de cadastro -->
+    <form id="cadastroForm">
+        <!-- Campos do formulário -->
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" pattern="[0-9]{10,11}">
+
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade">
+
+        <label for="dataNascimento">Data de Nascimento:</label>
+        <input type="date" id="dataNascimento" name="dataNascimento">
+
+        <div class="radio-group">
+            <label>Gênero:</label>
+            <label><input type="radio" name="genero" value="masculino"> Masculino</label>
+            <label><input type="radio" name="genero" value="feminino"> Feminino</label>
+            <label><input type="radio" name="genero" value="outro"> Outro</label>
+        </div>
+
+        <label for="notificacoes">Receber notificações por e-mail:</label>
+        <input type="checkbox" id="notificacoes" name="notificacoes">
+
+        <!-- Botão de envio do formulário -->
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script>
+        // Obtém o formulário e a mensagem de sucesso pelo ID
+        const form = document.getElementById('cadastroForm');
+        const successMessage = document.getElementById('successMessage');
+
+        // Adiciona um evento de submit ao formulário
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o comportamento padrão do envio do formulário
+            if (form.checkValidity()) { // Verifica se o formulário é válido
+                // Lógica de envio do formulário (simulado com a mensagem de sucesso)
+                successMessage.style.display = 'block'; // Exibe a mensagem de sucesso
+                form.reset(); // Reseta o formulário após o cadastro
+                setTimeout(function() {
+                    successMessage.style.display = 'none'; // Oculta a mensagem após um tempo
+                }, 3000); // Tempo para ocultar a mensagem (simulado)
+            } else {
+                alert('Por favor, preencha corretamente todos os campos.'); // Alerta se o formulário não for válido
+            }
+        });
+
+        // Função para redirecionar ao clicar em "Home"
+        function redirectToHome() {
+            window.location.href = 'home.html'; // Redireciona para a página home.html
+        }
+
+        // Seleciona todos os elementos <a> do navbar e adiciona evento de clique
+        const navLinks = document.querySelectorAll('.navbar ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Previne o comportamento padrão do link
+                const linkText = this.innerText.toLowerCase(); // Obtém o texto do link em letras minúsculas
+                if (linkText === 'home') {
+                    redirectToHome(); // Redireciona para a página Home
+                }
+                else if(linkText === 'clientes'){
+                
+                }
+                 else {
+                    alert('Página em manutenção'); // Mostra oo aviso para outras opções
+                }
+            });
+        });
+
+        // Adicionando a mensagem ao clicar em "Sair"
+        const sairButton = document.querySelector('.logoff');
+        sairButton.addEventListener('click', function() {
+            alert('Obrigado, volte sempre!');
+        });
+    </script>
+</body>
+</html>
